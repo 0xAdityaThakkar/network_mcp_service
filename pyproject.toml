@@ -1,0 +1,17 @@
+[project]
+name = "network-mcp-service"
+version = "0.1.0"
+description = "A MCP server for network devices with FastAPI and JSON-RPC support"
+authors = [ { name = "Aditya Thakkar" } ]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.100.1",
+    "uvicorn>=0.22.0",
+    "pydantic>=1.10.12",
+    "pytest>=7.4.2",
+    "httpx>=0.24.1"
+]
+
+[tool.uv]
+entrypoints = { "main" = "src/main.py" }

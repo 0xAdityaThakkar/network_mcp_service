@@ -2,19 +2,26 @@
 
 A minimal MCP (Model Communication Protocol) server for network devices. It exposes an HTTP JSON API to list devices with filtering and pagination.
 
-Quick start
+Quick start (uv project)
 
-1. Create a Python virtualenv and install dependencies:
+1. Install uv (if not already):
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+pip install uv
 ```
 
-2. Start the server locally:
+2. Install dependencies and run the server:
 
 ```bash
+uv pip install -r requirements.txt
+uvicorn src.main:app --reload --port 5000
+```
+
+Or use uv with pyproject.toml:
+
+```bash
+uv venv
+uv pip install -e .
 uvicorn src.main:app --reload --port 5000
 ```
 
