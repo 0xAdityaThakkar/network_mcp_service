@@ -1,4 +1,4 @@
-# network_mcp_service
+# Network MCP Server
 
 A minimal MCP (Model Communication Protocol) server for network devices. It exposes an HTTP JSON API to list devices with filtering and pagination.
 
@@ -67,4 +67,3 @@ Clients can discover supported MCP methods at GET /mcp/methods which returns a J
 Notes
 
 - The examples assume the server runs on port 8000. In the smoke tests I used port 8001 to avoid conflicts: `uvicorn src.main:app --port 8001`.
-# network_mcp_service
