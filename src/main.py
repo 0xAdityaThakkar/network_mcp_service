@@ -14,8 +14,19 @@ from .models import (
     GetDeviceResult,
 )
 from .data import list_devices, get_device_by_id, update_device
+from fastapi.middleware.cors import CORSMiddleware
+
+origins = [
+    "http://localhost:8000",
+]
 
 app = FastAPI(title="Network MCP Service")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class ListResponse(BaseModel):
@@ -135,7 +146,7 @@ def mcp_endpoint(envelope: MCPEnvelope):
     return MCPResponseEnvelope(id=envelope.id, error={"code": -32601, "message": "Method not found"})
 
 
-@app.get("/mcp/methods")
+@app.get("/list-tools")
 def mcp_methods():
     """Return a small discovery document describing supported MCP methods and their params."""
     return {

@@ -64,6 +64,14 @@ Clients can discover supported MCP methods at GET /mcp/methods which returns a J
 { "methods": [ { "name": "ListDevices", "description": "List devices with filters and pagination", "params": { ... } } ] }
 ```
 
+For JSON-RPC-style discovery use GET /mcp/tools which returns a document with a `jsonrpc: "2.0"` top-level field and the same `methods` list.
+
+Example:
+
+```json
+{ "jsonrpc": "2.0", "methods": [ { "name": "ListDevices", "params": { ... } } ] }
+```
+
 Notes
 
 - The examples assume the server runs on port 8000. In the smoke tests I used port 8001 to avoid conflicts: `uvicorn src.main:app --port 8001`.
